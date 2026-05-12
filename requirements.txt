@@ -1,0 +1,13 @@
+# --- Unidad 5: Montículos (Heaps) y Colas de Prioridad ---
+fastapi
+uvicorn
+pydantic
+
+# =======================================================
+# Pasos para que funcione correctamente:
+# 1 - Escribir en la terminal:
+# python -m venv venv
+# 2 - Activar el entorno:
+# .\venv\Scripts\activate
+# 3 - Instalar todo:
+# pip install -r requirements.txt

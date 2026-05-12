@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+
+*.json
+*.txt
+!requirements.txt
+
+!.gitkeep
+
+venv/
+.venv/
+env/
+
