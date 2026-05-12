@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual - Problemario de Haskell</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="main-title">Problemario de Haskell</h1>
+            <p class="subtitle">Manual de usuario interactivo para los ejercicios de Programación Funcional.</p>
+            <div class="divider"></div>
+        </header>
+
+        <main class="content-single">
+            <!-- Panel 1: Qué es -->
+            <section class="panel">
+                <div class="panel-header">
+                    <h2>¿Qué es la aplicación?</h2>
+                </div>
+                <div class="panel-content">
+                    <p>Esta herramienta es una aplicación por <strong>terminal</strong> desarrollada completamente en
+                        Haskell. Su propósito es servir como un problemario interactivo que agrupa y ejecuta ejercicios
+                        prácticos de programación funcional, basados en el libro "Ejercicios de programación funcional
+                        con Haskell".</p>
+                    <p>El proyecto está dividido modularmente en dos archivos principales:</p>
+                    <ul>
+                        <li><span class="highlight">Ejercicios.hs</span>: Contiene toda la lógica matemática, algoritmos
+                            y estructuras de datos.</li>
+                        <li><span class="highlight">Main.hs</span>: Gestiona la entrada/salida y el sistema de menús
+                            interactivos.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Panel 2: Cómo funciona -->
+            <section class="panel">
+                <div class="panel-header">
+                    <h2>¿Cómo funciona?</h2>
+                </div>
+                <div class="panel-content">
+                    <p>La aplicación presenta un menú principal. Al seleccionar un capítulo, se despliega un
+                        submenú con los ejercicios correspondientes. Además el sistema cuenta con validaciones para
+                        garantizar que las entradas inválidas no rompan el programa.</p>
+                    <div class="terminal-mockup">
+                        <div class="terminal-text">
+                            <span class="prompt">></span> runghc Main.hs<br>
+                            ================================================================================================<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ejercicios
+                            de Haskell<br>
+                            ================================================================================================<br>
+                            1. Capitulo 1 --- INTRODUCCIÓN A LA PROGRAMACIÓN FUNCIONAL<br>
+                            2. Capitulo 2 --- NÚMEROS Y FUNCIONES<br>
+                            3. Capitulo 3 --- ESTRUCTURAS DE DATOS<br>
+                            4. Capitulo 4 --- APLICACIONES DE PROGRAMACIÓN FUNCIONAL<br>
+                            5. Capitulo 5 --- INTRODUCCIÓN A LA PROGRAMACIÓN FUNCIONAL<br>
+                            6. Capitulo 6 --- MODELIZACIÓN Y TIPOS DE DATOS<br>
+                            7. Capitulo 7 --- RECURSIÓN Y TIPOS DE DATOS<br>
+                            8. Capitulo 8 --- LISTAS Y COMPRENSIÓN<br>
+                            9. Capitulo 9 --- FUNCIONES DE ENTRADA Y SALIDA<br>
+                            10. Capitulo 10 --- TIPOS DE DATOS RECURSIVOS<br>
+                            11. Capitulo 11 --- ANALIZADORES<br>
+                            12. Capitulo 12 --- BÚSQUEDA EN GRAFOS<br>
+                            13. Capitulo 13 --- JUEGOS (EL GATO)<br>
+                            0. Salir<br>
+                            ================================================================================================<br><br>
+                            <span class="prompt">></span> Selecciona una opcion:
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Panel 3: Temario Detallado -->
+            <section class="panel">
+                <div class="panel-header">
+                    <h2>Temario Detallado</h2>
+                </div>
+                <div class="panel-content">
+                    <p>A continuación se detallan los ejercicios implementados, divididos por capítulo, abarcando desde
+                        las bases funcionales hasta el desarrollo para juegos.</p>
+
+                    <div class="chapter-block">
+                        <h3 class="chapter-title">Capítulo 1: Introducción a la programación funcional</h3>
+                        <p class="chapter-desc">Conceptos matemáticos básicos y su traducción a funciones de Haskell.
+                        </p>
+                        <ul class="exercise-list">
+                            <li><span class="ex-num">1.1</span> Factorial: Cálculo de factorial usando recursividad y
+                                condicionales.</li>
+                            <li><span class="ex-num">1.2</span> Combinaciones: Cálculo del número de combinaciones dadas
+                                <code>n</code> y <code>k</code>.
+                            </li>
+                            <li><span class="ex-num">1.3</span> Impar: Comprobación de si un número es impar.</li>
+                            <li><span class="ex-num">1.4</span> Cuadrado: Obtención del cuadrado de un número.</li>
+                            <li><span class="ex-num">1.5</span> Suma de Cuadrados: Sumar cuadrados de los elementos de
+                                una lista.</li>
+                            <li><span class="ex-num">1.6</span> Raíces: Cálculo de raíces de ecuaciones de segundo
+                                grado.</li>
+                            <li><span class="ex-num">1.7</span> Valor Absoluto: Función que devuelve el valor absoluto
+                                de un entero.</li>
+                            <li><span class="ex-num">1.8</span> Signo: Determinación del signo de un número entero (1,
+                                -1, o 0).</li>
+                            <li><span class="ex-num">1.9</span> Anterior Natural: Retorna el número anterior de un
+                                natural (mayor a 0).</li>
+                            <li><span class="ex-num">1.10</span> Potencia: Cálculo matemático manual de x^n.</li>
+                        </ul>
+                    </div>
+
+                    <div class="chapter-block">
+                        <h3 class="chapter-title">Capítulo 2: Números y funciones</h3>
+                        <p class="chapter-desc">Ejercicios orientados al procesamiento de listas básicas y mapeos
+                            aritméticos.</p>
+                        <ul class="exercise-list">
+                            <li><span class="ex-num">2.1</span> Siguiente: Devuelve el sucesor de un número.</li>
+                            <li><span class="ex-num">2.2</span> Doble: Multiplica por 2 un número dado.</li>
+                            <li><span class="ex-num">2.3</span> Mitad: Retorna la mitad en número decimal.</li>
+                            <li><span class="ex-num">2.4</span> Inverso: Retorna 1/x validando divisiones por cero.</li>
+                            <li><span class="ex-num">2.5</span> Potencia de 2: Función para calcular 2^n.</li>
+                            <li><span class="ex-num">2.6</span> Es Positivo: Validación de números positivos.</li>
+                            <li><span class="ex-num">2.7</span> Suma Lista: Sumatoria total de una lista de enteros.
+                            </li>
+                            <li><span class="ex-num">2.8</span> Producto Lista: Multiplicación consecutiva de una lista.
+                            </li>
+                            <li><span class="ex-num">2.9</span> Conjunción (AND): Retorna True solo si todos en la lista
+                                booleana son True.</li>
+                            <li><span class="ex-num">2.10</span> Disyunción (OR): Retorna True si al menos un elemento
+                                es True.</li>
+                        </ul>
+                    </div>
+
+                    <div class="chapter-block">
+                        <h3 class="chapter-title">Capítulo 3: Estructuras de datos</h3>
+                        <p class="chapter-desc">Implementación manual de las funciones core de manipulación de listas en
+                            Haskell.</p>
+                        <ul class="exercise-list">
+                            <li><span class="ex-num">3.1</span> Concatenación: Unión de dos listas independientes.</li>
+                            <li><span class="ex-num">3.2</span> Head: Obtener el primer elemento de una lista (con
+                                validaciones).</li>
+                            <li><span class="ex-num">3.3</span> Tail: Obtener el resto de la lista tras quitar la
+                                cabeza.</li>
+                            <li><span class="ex-num">3.4</span> Last: Encontrar y devolver el último elemento.</li>
+                            <li><span class="ex-num">3.5</span> Inversa: Voltear completamente una lista.</li>
+                            <li><span class="ex-num">3.6</span> Length: Conteo manual de longitud de una lista.</li>
+                            <li><span class="ex-num">3.7</span> Pertenencia: Comprobar si un elemento <code>x</code>
+                                pertenece a la lista.</li>
+                            <li><span class="ex-num">3.8</span> Todos Pares: Valida que todos los números dentro del
+                                arreglo sean divisibles entre 2.</li>
+                            <li><span class="ex-num">3.9</span> Fst (First): Obtención de la primera parte de una tupla.
+                            </li>
+                            <li><span class="ex-num">3.10</span> Snd (Second): Obtención de la segunda parte de una
+                                tupla.</li>
+                        </ul>
+                    </div>
+
+                    <div class="chapter-block">
+                        <h3 class="chapter-title">Capítulo 4: Aplicaciones de programación funcional</h3>
+                        <p class="chapter-desc">Resolución de problemas clásicos y algoritmos complejos mediante el
+                            paradigma funcional.</p>
+                        <ul class="exercise-list">
+                            <li><span class="ex-num">4.1</span> Segmentos iniciales: Generación de prefijos de una
+                                lista.</li>
+                            <li><span class="ex-num">4.2</span> Segmentos finales: Generación de sufijos de una lista.
+                            </li>
+                            <li><span class="ex-num">4.3</span> Segmentos: Obtención de todas las subcadenas continuas.
+                            </li>
+                            <li><span class="ex-num">4.4</span> Sublistas: Generación del conjunto potencia.</li>
+                            <li><span class="ex-num">4.5</span> Subconjunto: Comprobar si una lista está totalmente
+                                contenida en otra.</li>
+                            <li><span class="ex-num">4.6</span> Igualdad de Conjuntos: Comprobar que dos listas
+                                contienen los mismos valores.</li>
+                            <li><span class="ex-num">4.7</span> Permutaciones: Generar todas las posibles alteraciones
+                                de orden.</li>
+                            <li><span class="ex-num">4.8</span> Combinaciones: Seleccionar subgrupos de tamaño
+                                <code>n</code>.
+                            </li>
+                            <li><span class="ex-num">4.9</span> El problema de las Reinas: Resolución del clásico
+                                problema de ajedrez mediante <i>backtracking</i>.</li>
+                            <li><span class="ex-num">4.10</span> Números de Hamming: Generador de la secuencia infinita
+                                de Hamming.</li>
+                        </ul>
+                    </div>
+
+                    <div class="chapter-block">
+                        <h3 class="chapter-title">Capítulo 5: Introducción a la programación funcional</h3>
+                        <p class="chapter-desc">Revisión de conceptos elementales bajo el enfoque de Claessen.</p>
+                        <ul class="exercise-list">
+                            <li><span class="ex-num">5.1</span> Cuadrado: Implementación de la potencia al cuadrado
+                                elemental.</li>
+                            <li><span class="ex-num">5.2</span> Valor Absoluto: Re-evaluación del valor absoluto.</li>
+                        </ul>
+                    </div>
+
+                    <div class="chapter-block">
+                        <h3 class="chapter-title">Capítulo 6: Modelización y tipos de datos</h3>
+                        <p class="chapter-desc">Abstracción matemática usando tipos funcionales.</p>
+                        <ul class="exercise-list">
+                            <li><span class="ex-num">6.1</span> Concatenación de Listas: Unión elemental de secuencias.
+                            </li>
+                            <li><span class="ex-num">6.2</span> Inversa de Lista: Reversión eficiente de datos.</li>
+                        </ul>
+                    </div>
+
+                    <div class="chapter-block">
+                        <h3 class="chapter-title">Capítulo 7: Recursión y tipos de datos</h3>
+                        <p class="chapter-desc">Enfoque profundo en llamadas iterativas mediante recursión estricta.</p>
+                        <ul class="exercise-list">
+                            <li><span class="ex-num">7.1</span> Suma de Cuadrados Recursiva: Acumulación descendente.
+                            </li>
+                            <li><span class="ex-num">7.2</span> Potencia Recursiva: Evaluación de x^n multiplicando x a
+                                nivel inferior.</li>
+                        </ul>
+                    </div>
+
+                    <div class="chapter-block">
+                        <h3 class="chapter-title">Capítulo 8: Listas y comprensión</h3>
+                        <p class="chapter-desc">Uso intensivo de generadores (list comprehensions) para lógica
+                            declarativa.</p>
+                        <ul class="exercise-list">
+                            <li><span class="ex-num">8.1</span> Lista Ordenada: Evaluar que elementos subsiguientes
+                                conserven crecimiento <code>&lt;=</code>.</li>
+                            <li><span class="ex-num">8.2</span> Posiciones (Buscador): Localizar todos los índices donde
+                                reside un elemento objetivo.</li>
+                        </ul>
+                    </div>
+
+                    <div class="chapter-block">
+                        <h3 class="chapter-title">Capítulo 9: Funciones de entrada y salida</h3>
+                        <p class="chapter-desc">Manejo de Monadas IO para romper la pureza e imprimir en consola de
+                            forma controlada.</p>
+                        <ul class="exercise-list">
+                            <li><span class="ex-num">9.1</span> Acción y Escritura: Ejecución forzada de secuencias
+                                putStrLn.</li>
+                            <li><span class="ex-num">9.2</span> Escritura de Tablas: Tabulación elegante de cadenas para
+                                listados o inventarios.</li>
+                        </ul>
+                    </div>
+
+                    <div class="chapter-block">
+                        <h3 class="chapter-title">Capítulo 10: Tipos de datos recursivos</h3>
+                        <p class="chapter-desc">Estructuras jerárquicas como árboles para evaluar matemáticas.</p>
+                        <ul class="exercise-list">
+                            <li><span class="ex-num">10.1</span> Expresiones Simples: Creación de tipo de dato Árbol
+                                soportando (Suma, Multiplicación, Número).</li>
+                            <li><span class="ex-num">10.2</span> Expresiones Generales: Expansión soportando (Suma,
+                                Resta, División, Producto).</li>
+                        </ul>
+                    </div>
+
+                    <div class="chapter-block">
+                        <h3 class="chapter-title">Capítulo 11: Analizadores (Parsers)</h3>
+                        <p class="chapter-desc">Conversión y entendimiento de tokens de String a tipos fuertes.</p>
+                        <ul class="exercise-list">
+                            <li><span class="ex-num">11.1</span> Uso de 'read': Conversiones directas nativas y sus
+                                fallos intrínsecos.</li>
+                            <li><span class="ex-num">11.2</span> Analizador Éxito: Creación del bloque base tipo
+                                <code>ReadS</code> que envuelve respuestas positivas puras.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="chapter-block">
+                        <h3 class="chapter-title">Capítulo 12: Búsqueda en grafos y espacios de estados</h3>
+                        <p class="chapter-desc">Modelización de nodos y recorridos profundos.</p>
+                        <ul class="exercise-list">
+                            <li><span class="ex-num">12.1</span> Grafo Dirigido: Definición semántica de vértices y
+                                sucesores estáticos.</li>
+                            <li><span class="ex-num">12.2</span> Pathfinder (Caminos): Búsqueda en profundidad (DFS)
+                                para trazar ruta entre origen y destino.</li>
+                        </ul>
+                    </div>
+
+                    <div class="chapter-block">
+                        <h3 class="chapter-title">Capítulo 13: Juegos (EL GATO)</h3>
+                        <p class="chapter-desc">Aplicación del paradigma funcional para desarrollo de videojuegos en
+                            consola.</p>
+                        <ul class="exercise-list">
+                            <li><span class="ex-num">13.1</span> Tres en Raya (El Gato): Implementación total de las
+                                mecánicas. Incluye control de turno mediante el algoritmo estricto de
+                                Minimax con Poda.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Panel 4: Ejemplos de uso -->
+            <section class="panel">
+                <div class="panel-header">
+                    <h2>Ejemplos de Ejecución</h2>
+                </div>
+                <div class="panel-content">
+                    <p>Estos son ejemplos reales de cómo interactúa el usuario con los diferentes problemas matemáticos
+                        y de lógica dentro de la consola interactiva.</p>
+
+                    <h3 class="chapter-title" style="margin-top: 1.5rem;">Ejemplo 1: Factorial (Recursión Matemática)
+                    </h3>
+                    <div class="terminal-mockup">
+                        <div class="terminal-text">
+                            Ejercicio 1.1: Devuelve el factorial de un numero n.<br>
+                            <span class="prompt">></span> Introduce un numero: 5<br>
+                            Resultado: 120<br>
+                            <br>
+                            Presiona Enter para volver al menu...
+                        </div>
+                    </div>
+
+                    <h3 class="chapter-title" style="margin-top: 1.5rem;">Ejemplo 2: N-Reinas (Backtracking)</h3>
+                    <div class="terminal-mockup">
+                        <div class="terminal-text">
+                            Ejercicio 4.9: Resuelve el problema de las n reinas.<br>
+                            <span class="prompt">></span> Introduce n (numero de reinas): 4<br>
+                            Calculando soluciones...<br>
+                            Resultado: [[2,4,1,3],[3,1,4,2]]<br>
+                            <br>
+                            Presiona Enter para volver al menu...
+                        </div>
+                    </div>
+
+                    <h3 class="chapter-title" style="margin-top: 1.5rem;">Ejemplo 3: Tres en Raya con Minimax</h3>
+                    <div class="terminal-mockup">
+                        <div class="terminal-text">
+                            Ejercicio 13.1: Implementacion del juego del Gato (Tres en Raya)<br>
+                            <span class="prompt">></span> Quieres ser la X? (s/n): s<br>
+                            <br>
+                            <span class="prompt">></span> Introduce posicion libre (1-9): 5<br>
+                            Tu jugada:<br>
+                            1|2|3<br>
+                            -----<br>
+                            4|X|6<br>
+                            -----<br>
+                            7|8|9<br>
+                            <br>
+                            Turno de la computadora:<br>
+                            O|2|3<br>
+                            -----<br>
+                            4|X|6<br>
+                            -----<br>
+                            7|8|9
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="codigo.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const listItems = document.querySelectorAll('.exercise-list li');
+
+            listItems.forEach(li => {
+                // Get the exercise number (e.g., "1.1")
+                const exNumSpan = li.querySelector('.ex-num');
+                if (!exNumSpan) return;
+
+                const exNum = exNumSpan.innerText.trim(); // "1.1"
+
+                // Add click listener
+                li.addEventListener('click', function () {
+                    // Check if code container already exists inside this li
+                    let codeContainer = this.querySelector('.code-container');
+
+                    if (codeContainer) {
+                        // Toggle visibility
+                        codeContainer.style.display = codeContainer.style.display === 'none' ? 'block' : 'none';
+                    } else {
+                        // Create and inject code container
+                        codeContainer = document.createElement('div');
+                        codeContainer.className = 'code-container';
+
+                        // Extract code from codigoHaskell
+                        const code = extractCode(exNum);
+                        if (code) {
+                            codeContainer.innerHTML = `<pre><code>${escapeHtml(code)}</code></pre>`;
+                        } else {
+                            codeContainer.innerHTML = `<pre><code>-- Código no encontrado para el ejercicio ${exNum}</code></pre>`;
+                        }
+
+                        this.appendChild(codeContainer);
+                        codeContainer.style.display = 'block';
+                    }
+                });
+            });
+
+            // Prevent click on the code container from bubbling up and closing it
+            document.addEventListener('click', function (e) {
+                if (e.target.closest('.code-container')) {
+                    e.stopPropagation();
+                }
+            }, true);
+
+            // Function to extract code snippet based on "-- X.Y " header
+            function extractCode(exNum) {
+                const lines = codigoHaskell.split('\n');
+                let startIndex = -1;
+                let endIndex = -1;
+                const prefix = `-- ${exNum} `;
+
+                for (let i = 0; i < lines.length; i++) {
+                    if (lines[i].startsWith(prefix)) {
+                        startIndex = i;
+                        break;
+                    }
+                }
+
+                if (startIndex !== -1) {
+                    // Find the end: the next line of ------------------
+                    for (let i = startIndex + 1; i < lines.length; i++) {
+                        if (lines[i].startsWith('-------------------------')) {
+                            endIndex = i;
+                            break;
+                        }
+                    }
+                    if (endIndex === -1) endIndex = lines.length;
+
+                    // Trim trailing empty lines
+                    while (endIndex > startIndex && lines[endIndex - 1].trim() === '') {
+                        endIndex--;
+                    }
+
+                    return lines.slice(startIndex, endIndex).join('\n');
+                }
+                return null;
+            }
+
+            function escapeHtml(unsafe) {
+                return unsafe
+                    .replace(/&/g, "&amp;")
+                    .replace(/</g, "&lt;")
+                    .replace(/>/g, "&gt;")
+                    .replace(/"/g, "&quot;")
+                    .replace(/'/g, "&#039;");
+            }
+        });
+    </script>
+</body>
+
+</html>

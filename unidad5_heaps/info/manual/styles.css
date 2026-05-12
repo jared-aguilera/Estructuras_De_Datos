@@ -1,0 +1,221 @@
+:root {
+    --bg-main: #0B1120;
+    --bg-panel: #1E293B;
+    --bg-input: #0F172A;
+    --text-primary: #F8FAFC;
+    --text-secondary: #94A3B8;
+    --accent-red: #EF4444;
+    --accent-red-hover: #DC2626;
+    --border-color: #334155;
+    --terminal-green: #4ADE80;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    min-height: 100vh;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.main-title {
+    color: var(--accent-red);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent-red), transparent);
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Main Layout */
+.content-single {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Panels */
+.panel {
+    background-color: var(--bg-panel);
+    border-radius: 8px;
+    padding: 2rem;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.panel-header {
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.panel-header h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.panel-content p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.panel-content > ul {
+    list-style-type: none;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.panel-content > ul > li {
+    margin-bottom: 0.8rem;
+    padding-left: 1.2rem;
+    position: relative;
+}
+
+.panel-content > ul > li::before {
+    content: "•";
+    color: var(--accent-red);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+.highlight {
+    background-color: var(--bg-input);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    color: var(--text-primary);
+    font-family: monospace;
+    font-size: 0.9em;
+}
+
+/* Terminal Mockup */
+.terminal-mockup {
+    background-color: var(--bg-input);
+    border-radius: 6px;
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+    margin-top: 1.5rem;
+}
+
+.terminal-text {
+    font-family: 'Courier New', Courier, monospace;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    white-space: nowrap;
+    overflow-x: hidden;
+}
+
+.prompt {
+    color: var(--terminal-green);
+    font-weight: bold;
+}
+
+/* Detailed Curriculum Styles */
+.chapter-block {
+    background-color: var(--bg-input);
+    padding: 1.5rem;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    margin-top: 1.5rem;
+}
+
+.chapter-title {
+    color: var(--accent-red);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.chapter-desc {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 1rem !important;
+    font-style: italic;
+}
+
+.exercise-list {
+    list-style-type: none;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.exercise-list li {
+    margin-bottom: 0.6rem;
+    line-height: 1.5;
+    padding: 0.5rem 0.5rem 0.5rem 1rem;
+    border-left: 3px solid var(--border-color);
+    cursor: pointer;
+    transition: background-color 0.2s, border-left-color 0.2s;
+    border-radius: 0 4px 4px 0;
+}
+
+.exercise-list li:hover {
+    background-color: var(--bg-panel);
+    border-left-color: var(--accent-red);
+}
+
+.code-container {
+    display: none;
+    background-color: #000000;
+    color: var(--terminal-green);
+    padding: 1rem;
+    border-radius: 6px;
+    margin-top: 0.8rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+    overflow-x: auto;
+    border: 1px solid var(--border-color);
+    cursor: text;
+}
+
+.ex-num {
+    color: var(--text-primary);
+    font-weight: 600;
+    margin-right: 0.5rem;
+    font-family: monospace;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .panel {
+        padding: 1.5rem;
+    }
+}

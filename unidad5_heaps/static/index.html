@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Montículos y Colas de Prioridad</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="main-title">Estructura de Datos: Heaps</h1>
+            <p class="subtitle">Práctica Integradora - Montículos y Colas de Prioridad</p>
+            <div class="divider"></div>
+        </header>
+
+        <div class="content-single">
+
+            <!-- Ejercicio 1: Triage -->
+            <div class="panel">
+                <div class="panel-header">
+                    <h2>Ejercicio 1: Sistema de Triage en Emergencias (Min-Heap)</h2>
+                </div>
+                <div class="panel-content">
+                    <p>Simulación de atención de pacientes por gravedad (1 = más crítico).</p>
+
+                    <div class="form-group">
+                        <input type="text" id="t-nombre" placeholder="Nombre del Paciente">
+                        <input type="number" id="t-gravedad" placeholder="Gravedad (1-5)" min="1" max="5">
+                        <button onclick="addPaciente()" class="btn-primary">Registrar Paciente</button>
+                    </div>
+
+                    <div style="display: flex; gap: 0.5rem;">
+                        <button onclick="attendPaciente()" class="btn-secondary">Atender Siguiente Paciente</button>
+                        <button onclick="clearTerminal('terminal-1')" class="btn-secondary"
+                            style="border-color: var(--text-secondary); color: var(--text-secondary);">Limpiar
+                            Terminal</button>
+                    </div>
+
+                    <div class="terminal-mockup">
+                        <div class="terminal-text" id="terminal-1">
+                            <span class="prompt">></span> Esperando pacientes...
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Plantillas de los siguientes ejercicios (Deshabilitadas visualmente por ahora) -->
+            <div class="panel">
+                <div class="panel-header">
+                    <h2>Ejercicio 2: Priorización en IA de videojuego (Max-Heap)</h2>
+                </div>
+                <div class="panel-content">
+                    <p>Simular la lógica de producción de unidades (mayor número = mayor prioridad).</p>
+                    
+                    <div class="form-group">
+                        <select id="j-tipo" style="background-color: var(--bg-input); color: var(--text-primary); border: 1px solid var(--border-color); padding: 0.5rem 1rem; border-radius: 4px; outline: none; flex: 1;">
+                            <option value="Defensor">Defensor</option>
+                            <option value="Atacante">Atacante</option>
+                            <option value="Trabajador">Trabajador</option>
+                        </select>
+                        <input type="number" id="j-prioridad" placeholder="Prioridad (Mayor = +Urgente)">
+                        <button onclick="addUnidad()" class="btn-primary">Registrar Unidad</button>
+                    </div>
+
+                    <div style="display: flex; gap: 0.5rem;">
+                        <button onclick="produceUnidad()" class="btn-secondary">Producir Siguiente Unidad</button>
+                        <button onclick="clearTerminal('terminal-2')" class="btn-secondary"
+                            style="border-color: var(--text-secondary); color: var(--text-secondary);">Limpiar
+                            Terminal</button>
+                    </div>
+
+                    <div class="terminal-mockup">
+                        <div class="terminal-text" id="terminal-2">
+                            <span class="prompt">></span> Esperando órdenes de producción...
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-header">
+                    <h2>Ejercicio 3: Algoritmo HeapSort</h2>
+                </div>
+                <div class="panel-content">
+                    <p>Ordena un arreglo de números construyendo un Max-Heap bottom-up y aplicando Sift-Down.</p>
+                    
+                    <div class="form-group">
+                        <input type="text" id="s-arreglo" placeholder="Ingresa números separados por comas (Ej: 1,5,2,8,3)">
+                        <button onclick="sortArray()" class="btn-primary">Ordenar con HeapSort</button>
+                    </div>
+
+                    <div style="display: flex; gap: 0.5rem;">
+                        <button onclick="clearTerminal('terminal-3')" class="btn-secondary"
+                            style="border-color: var(--text-secondary); color: var(--text-secondary);">Limpiar
+                            Terminal</button>
+                    </div>
+
+                    <div class="terminal-mockup">
+                        <div class="terminal-text" id="terminal-3">
+                            <span class="prompt">></span> Esperando arreglo a ordenar...
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-header">
+                    <h2>Ejercicio 4: Planificador de CPU (Excepciones)</h2>
+                </div>
+                <div class="panel-content">
+                    <p>Simulación de capacidad límite (5 tareas). Captura de Heap Overflow y Underflow.</p>
+                    
+                    <div class="form-group">
+                        <input type="text" id="c-nombre" placeholder="Nombre de Tarea (Ej. Proceso A)">
+                        <input type="number" id="c-prioridad" placeholder="Prioridad (1 = Mayor)" min="1">
+                        <button onclick="addTareaCPU()" class="btn-primary">Encolar Tarea</button>
+                    </div>
+
+                    <div style="display: flex; gap: 0.5rem;">
+                        <button onclick="attendTareaCPU()" class="btn-secondary">Ejecutar Siguiente Tarea</button>
+                        <button onclick="clearTerminal('terminal-4')" class="btn-secondary"
+                            style="border-color: var(--text-secondary); color: var(--text-secondary);">Limpiar
+                            Terminal</button>
+                    </div>
+
+                    <div class="terminal-mockup">
+                        <div class="terminal-text" id="terminal-4">
+                            <span class="prompt">></span> CPU inactivo...
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-header">
+                    <h2>Ejercicio 5: Algoritmo de Dijkstra</h2>
+                </div>
+                <div class="panel-content">
+                    <p>Enrutador de red mínimo utilizando un Min-Heap y aplicando <b>decrease-key</b>.</p>
+                    <div style="text-align: center; margin: 1rem 0;">
+                        <img src="/static/grafo.jpg" alt="Grafo de Dijkstra" style="max-width: 100%; border-radius: 8px; border: 1px solid var(--border-color);">
+                    </div>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem;">
+                        <b>Rutas del grafo precargado:</b><br>
+                        A -> B (4), A -> C (2)<br>
+                        B -> C (5), B -> D (10)<br>
+                        C -> D (3)
+                    </p>
+                    
+                    <div class="form-group">
+                        <select id="d-nodo" style="background-color: var(--bg-input); color: var(--text-primary); border: 1px solid var(--border-color); padding: 0.5rem 1rem; border-radius: 4px; outline: none; flex: 1;">
+                            <option value="A">Iniciar en Nodo A</option>
+                            <option value="B">Iniciar en Nodo B</option>
+                            <option value="C">Iniciar en Nodo C</option>
+                            <option value="D">Iniciar en Nodo D</option>
+                        </select>
+                        <button onclick="runDijkstra()" class="btn-primary">Ejecutar Algoritmo</button>
+                    </div>
+
+                    <div style="display: flex; gap: 0.5rem;">
+                        <button onclick="clearTerminal('terminal-5')" class="btn-secondary"
+                            style="border-color: var(--text-secondary); color: var(--text-secondary);">Limpiar
+                            Terminal</button>
+                    </div>
+
+                    <div class="terminal-mockup">
+                        <div class="terminal-text" id="terminal-5">
+                            <span class="prompt">></span> Esperando ejecución de Dijkstra...
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+
+</html>
