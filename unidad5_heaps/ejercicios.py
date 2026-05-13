@@ -5,7 +5,7 @@ class Paciente:
     def __init__(self, id_paciente, nombre, gravedad):
         self.id_paciente = id_paciente
         self.nombre = nombre
-        self.gravedad = gravedad # 1 = más crítico
+        self.gravedad = gravedad # 1 = mas critico
 
     def obtener_datos(self):
         return {
@@ -21,8 +21,6 @@ class SistemaHospital:
 
     def registrar_paciente(self, id_paciente, nombre, gravedad):
         paciente = Paciente(id_paciente, nombre, gravedad)
-        # Se inserta la tupla (gravedad, contador, paciente_dict)
-        # El contador desempata si tienen la misma gravedad (FIFO)
         self.min_heap.insert((gravedad, self.contador, paciente.obtener_datos()))
         self.contador += 1
         return paciente.obtener_datos()
@@ -35,15 +33,13 @@ class SistemaHospital:
         return paciente
 
     def ver_estado_heap(self):
-        # Devuelve el heap actual (solo para visualización)
         return [{"gravedad": p[0], "id": p[2]["id"], "paciente": p[2]["nombre"]} for p in self.min_heap.heap]
 
-# Instancia global para usar en la API
 sistema_hospital = SistemaHospital()
 
 class Unidad:
     def __init__(self, tipo, prioridad):
-        self.tipo = tipo # Ej: Defensor, Atacante, Trabajador
+        self.tipo = tipo
         self.prioridad = prioridad
 
     def obtener_datos(self):
@@ -59,9 +55,6 @@ class SistemaVideojuego:
 
     def registrar_unidad(self, tipo, prioridad):
         unidad = Unidad(tipo, prioridad)
-        # Para que el Max-Heap desempate correctamente (FIFO), 
-        # el primer contador (0) debe ser "mayor" que el segundo (1).
-        # Usamos -self.contador (-0 > -1)
         self.max_heap.insert((prioridad, -self.contador, unidad.obtener_datos()))
         self.contador += 1
         return unidad.obtener_datos()
@@ -109,10 +102,10 @@ def heapsort_paso_a_paso(arr):
 
     # 2. Ordenamiento (Intercambio y reducción)
     for i in range(n - 1, 0, -1):
-        arr[0], arr[i] = arr[i], arr[0] # Intercambio raíz <-> último
+        arr[0], arr[i] = arr[i], arr[0] # Intercambio raíz con el ultimo
         pasos.append({"fase": f"Extraído el mayor ({arr[i]}) al final", "arreglo": list(arr)})
         
-        sift_down(arr, i, 0) # Aplicación de sift-down con heap reducido
+        sift_down(arr, i, 0) # sift-down con heap reducido
         pasos.append({"fase": "Sift-down aplicado para restaurar heap", "arreglo": list(arr)})
 
     pasos.append({"fase": "Arreglo ordenado final", "arreglo": list(arr)})
@@ -121,13 +114,11 @@ def heapsort_paso_a_paso(arr):
 # --- Ejercicio 4: Planificador de CPU ---
 class SistemaCPU:
     def __init__(self):
-        # El requerimiento dice explícitamente límite 5
         self.heap = BoundedMinHeap(5)
         self.contador = 0
 
     def agregar_tarea(self, nombre, prioridad):
         tarea = {"nombre": nombre, "prioridad": prioridad}
-        # Las excepciones de Overflow/Underflow serán manejadas en el main.py
         self.heap.insert((prioridad, self.contador, tarea))
         self.contador += 1
         return tarea
@@ -142,7 +133,6 @@ class SistemaCPU:
 sistema_cpu = SistemaCPU()
 
 # --- Ejercicio 5: Algoritmo de Dijkstra ---
-# Grafo predefinido
 grafo_rutas = {
     "A": {"B": 4, "C": 2},
     "B": {"C": 5, "D": 10},
@@ -160,7 +150,6 @@ def ejecutar_dijkstra(nodo_inicio):
 
     pasos.append(f"Iniciando Dijkstra desde el Nodo {nodo_inicio}")
     
-    # Inserción inicial
     for nodo in grafo_rutas:
         dist = 0 if nodo == nodo_inicio else float('inf')
         heap.insert((dist, contador, {"id": nodo}))
@@ -184,7 +173,6 @@ def ejecutar_dijkstra(nodo_inicio):
 
         pasos.append(f"\n[Visitando] Nodo {nodo_actual} (Distancia desde origen: {dist_actual})")
 
-        # Relajación
         for vecino, peso in grafo_rutas[nodo_actual].items():
             if vecino in visitados:
                 continue
@@ -192,10 +180,8 @@ def ejecutar_dijkstra(nodo_inicio):
             nueva_distancia = dist_actual + peso
             if nueva_distancia < distancias[vecino]:
                 vieja_distancia = "Infinito" if distancias[vecino] == float('inf') else distancias[vecino]
-                pasos.append(f"  ¡Atajo encontrado hacia {vecino}! Costo: {vieja_distancia} -> {nueva_distancia}")
+                pasos.append(f"  Atajo encontrado hacia {vecino} - Costo: {vieja_distancia} -> {nueva_distancia}")
                 distancias[vecino] = nueva_distancia
-                
-                # REQUERIMIENTO DEL PDF: Aplicar decrease-key
                 heap.decrease_key_by_id(vecino, nueva_distancia)
                 pasos.append(f"  --> decrease-key({vecino}, {nueva_distancia}) ejecutado.")
     

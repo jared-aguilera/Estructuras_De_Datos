@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Montículos y Colas de Prioridad</title>
+    <title>Heaps y Colas de Prioridad</title>
     <link rel="stylesheet" href="/static/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
@@ -12,24 +12,27 @@
 <body>
     <div class="container">
         <header class="header">
-            <h1 class="main-title">Estructura de Datos: Heaps</h1>
-            <p class="subtitle">Práctica Integradora - Montículos y Colas de Prioridad</p>
+            <h1 class="main-title">Ejercicios de Heaps y Colas de Prioridad</h1>
+            <p class="subtitle">En esta aplicación web se muestran varios ejercicios de heaps, donde cada problema
+                representa un caso real de uso de colas de prioridad</p>
             <div class="divider"></div>
         </header>
 
         <div class="content-single">
 
-            <!-- Ejercicio 1: Triage -->
+            <!-- Ejercicio 1: Sistema de Triage en Emergencias (Min-Heap) -->
             <div class="panel">
                 <div class="panel-header">
                     <h2>Ejercicio 1: Sistema de Triage en Emergencias (Min-Heap)</h2>
                 </div>
                 <div class="panel-content">
-                    <p>Simulación de atención de pacientes por gravedad (1 = más crítico).</p>
+                    <p>Simular un sistema hospitalario donde los pacientes se atienden según su nivel de
+                        gravedad, donde 1 es el nivel más crítico y 5 el menos crítico.</p>
 
                     <div class="form-group">
                         <input type="text" id="t-nombre" placeholder="Nombre del Paciente">
-                        <input type="number" id="t-gravedad" placeholder="Gravedad (1-5)" min="1" max="5">
+                        <input type="number" id="t-gravedad" placeholder="Gravedad (1-5)" min="1" max="5"
+                            oninput="this.value = this.value.replace(/[^0-9]/g, '')">
                         <button onclick="addPaciente()" class="btn-primary">Registrar Paciente</button>
                     </div>
 
@@ -48,21 +51,24 @@
                 </div>
             </div>
 
-            <!-- Plantillas de los siguientes ejercicios (Deshabilitadas visualmente por ahora) -->
+            <!-- Ejercicio 2: Priorización en IA de videojuego (Max-Heap) -->
             <div class="panel">
                 <div class="panel-header">
                     <h2>Ejercicio 2: Priorización en IA de videojuego (Max-Heap)</h2>
                 </div>
                 <div class="panel-content">
-                    <p>Simular la lógica de producción de unidades (mayor número = mayor prioridad).</p>
-                    
+                    <p>Simular la lógica de producción de unidades en un sistema de estrategia, donde un mayor número
+                        indica mayor prioridad.</p>
+
                     <div class="form-group">
-                        <select id="j-tipo" style="background-color: var(--bg-input); color: var(--text-primary); border: 1px solid var(--border-color); padding: 0.5rem 1rem; border-radius: 4px; outline: none; flex: 1;">
+                        <select id="j-tipo"
+                            style="background-color: var(--bg-input); color: var(--text-primary); border: 1px solid var(--border-color); padding: 0.5rem 1rem; border-radius: 4px; outline: none; flex: 1;">
                             <option value="Defensor">Defensor</option>
                             <option value="Atacante">Atacante</option>
                             <option value="Trabajador">Trabajador</option>
                         </select>
-                        <input type="number" id="j-prioridad" placeholder="Prioridad (Mayor = +Urgente)">
+                        <input type="number" id="j-prioridad" placeholder="Prioridad" min="1"
+                            oninput="this.value = this.value.replace(/[^0-9]/g, '')">
                         <button onclick="addUnidad()" class="btn-primary">Registrar Unidad</button>
                     </div>
 
@@ -81,15 +87,18 @@
                 </div>
             </div>
 
+            <!-- Ejercicio 3: Algoritmo HeapSort -->
             <div class="panel">
                 <div class="panel-header">
                     <h2>Ejercicio 3: Algoritmo HeapSort</h2>
                 </div>
                 <div class="panel-content">
-                    <p>Ordena un arreglo de números construyendo un Max-Heap bottom-up y aplicando Sift-Down.</p>
-                    
+                    <p>Ordenar un arreglo utilizando montículos.</p>
+
                     <div class="form-group">
-                        <input type="text" id="s-arreglo" placeholder="Ingresa números separados por comas (Ej: 1,5,2,8,3)">
+                        <input type="text" id="s-arreglo"
+                            placeholder="Ingresa números separados por comas (Ej: 1,5,2,8,3)"
+                            oninput="this.value = this.value.replace(/[^0-9,]/g, '')">
                         <button onclick="sortArray()" class="btn-primary">Ordenar con HeapSort</button>
                     </div>
 
@@ -107,16 +116,19 @@
                 </div>
             </div>
 
+            <!-- Ejercicio 4: Planificador de CPU (Min-Heap) -->
             <div class="panel">
                 <div class="panel-header">
-                    <h2>Ejercicio 4: Planificador de CPU (Excepciones)</h2>
+                    <h2>Ejercicio 4: Planificador de CPU (Min-Heap)</h2>
                 </div>
                 <div class="panel-content">
-                    <p>Simulación de capacidad límite (5 tareas). Captura de Heap Overflow y Underflow.</p>
-                    
+                    <p>Simular la asignación de CPU con un límite de 5 tareas, donde se detecta Heap Overflow y
+                        Underflow.</p>
+
                     <div class="form-group">
                         <input type="text" id="c-nombre" placeholder="Nombre de Tarea (Ej. Proceso A)">
-                        <input type="number" id="c-prioridad" placeholder="Prioridad (1 = Mayor)" min="1">
+                        <input type="number" id="c-prioridad" placeholder="Prioridad (1 = Mayor)" min="1"
+                            oninput="this.value = this.value.replace(/[^0-9]/g, '')">
                         <button onclick="addTareaCPU()" class="btn-primary">Encolar Tarea</button>
                     </div>
 
@@ -135,6 +147,7 @@
                 </div>
             </div>
 
+            <!-- Ejercicio 5: Algoritmo de Dijkstra -->
             <div class="panel">
                 <div class="panel-header">
                     <h2>Ejercicio 5: Algoritmo de Dijkstra</h2>
@@ -142,17 +155,13 @@
                 <div class="panel-content">
                     <p>Enrutador de red mínimo utilizando un Min-Heap y aplicando <b>decrease-key</b>.</p>
                     <div style="text-align: center; margin: 1rem 0;">
-                        <img src="/static/grafo.jpg" alt="Grafo de Dijkstra" style="max-width: 100%; border-radius: 8px; border: 1px solid var(--border-color);">
+                        <img src="/static/grafo.jpg" alt="Grafo de Dijkstra"
+                            style="max-width: 100%; border-radius: 8px; border: 1px solid var(--border-color);">
                     </div>
-                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem;">
-                        <b>Rutas del grafo precargado:</b><br>
-                        A -> B (4), A -> C (2)<br>
-                        B -> C (5), B -> D (10)<br>
-                        C -> D (3)
-                    </p>
-                    
+
                     <div class="form-group">
-                        <select id="d-nodo" style="background-color: var(--bg-input); color: var(--text-primary); border: 1px solid var(--border-color); padding: 0.5rem 1rem; border-radius: 4px; outline: none; flex: 1;">
+                        <select id="d-nodo"
+                            style="background-color: var(--bg-input); color: var(--text-primary); border: 1px solid var(--border-color); padding: 0.5rem 1rem; border-radius: 4px; outline: none; flex: 1;">
                             <option value="A">Iniciar en Nodo A</option>
                             <option value="B">Iniciar en Nodo B</option>
                             <option value="C">Iniciar en Nodo C</option>

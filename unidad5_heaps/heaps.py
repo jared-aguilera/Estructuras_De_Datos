@@ -58,8 +58,8 @@ class MinHeap:
 
     def decrease_key_by_id(self, item_id, new_priority):
         """
-        Requerimiento del Ejercicio 5:
-        Busca un elemento por su 'id' en el diccionario (posición 2 de la tupla)
+        Esto es para el Ej5:
+        Busca un elemento por su id en el diccionario (posición 2 de la tupla)
         y si la nueva prioridad es menor, la actualiza y aplica sift_up.
         """
         for i in range(self.size):
@@ -141,10 +141,10 @@ class BoundedMinHeap(MinHeap):
 
     def insert(self, item):
         if self.size >= self.capacity:
-            raise HeapOverflowError("Heap Overflow: Capacidad máxima alcanzada (Límite 5)")
+            raise HeapOverflowError("Heap Overflow: Capacidad máxima alcanzada (límite 5)")
         super().insert(item)
 
     def extract_min(self):
         if self.size == 0:
-            raise HeapUnderflowError("Heap Underflow: El montículo está vacío, no hay tareas")
+            raise HeapUnderflowError("Heap Underflow: El heap está vacío, no hay tareas")
         return super().extract_min()

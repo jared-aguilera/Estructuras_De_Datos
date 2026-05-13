@@ -61,8 +61,8 @@ async function addUnidad() {
     const tipo = document.getElementById('j-tipo').value;
     const prioridad = parseInt(document.getElementById('j-prioridad').value);
 
-    if (!tipo || isNaN(prioridad)) {
-        alert("Por favor llena todos los campos correctamente.");
+    if (!tipo || isNaN(prioridad) || prioridad < 1) {
+        alert("Por favor llena todos los campos correctamente. Prioridad mínima de 1.");
         return;
     }
 
@@ -136,8 +136,8 @@ async function addTareaCPU() {
     const nombre = document.getElementById('c-nombre').value;
     const prioridad = parseInt(document.getElementById('c-prioridad').value);
 
-    if (!nombre || isNaN(prioridad)) {
-        alert("Llena los campos correctamente.");
+    if (!nombre || isNaN(prioridad) || prioridad < 1) {
+        alert("Llena los campos correctamente. Prioridad mínima de 1.");
         return;
     }
 
