@@ -11,7 +11,7 @@ Este repositorio contiene los codigos desarrollados a lo largo del semestre, div
 A continuación se presentan las carpetas principales que estructuran mi trabajo:
 
 - Ejercicios Basicos
-- Unidad 5: Monticulos
+- Unidad 5: Heaps y Colas de Prioridad
 - Unidad 6: Tablas Hash
 
 ### Detalle de Proyectos
