@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablas Hash</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="main-title">Unidad 6 - Implementación de Tablas Hash</h1>
+            <p class="subtitle">Desarrollar e implementar diferentes técnicas de funciones hash y resolución
+                de colisiones, evaluando su comportamiento mediante análisis experimental y teórico.</p>
+            <div class="divider"></div>
+        </header>
+
+        <div class="content-single">
+            <!-- Ejercicio 1: Comparación Hash -->
+            <div class="panel">
+                <div class="panel-header">
+                    <h2>1. Diseño de Función Hash</h2>
+                </div>
+                <div class="panel-content">
+                    <p>Analiza dos funciones hash para matrículas secuenciales y compara sus colisiones.</p>
+                    <div class="form-group">
+                        <div style="flex: 1; display: flex; flex-direction: column; gap: 0.3rem;">
+                            <label style="font-size: 0.85rem; color: var(--text-secondary);">Matrícula Inicial</label>
+                            <input type="number" id="e1-inicial" placeholder="Ej. 2218995" value="2218995"
+                                oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                        </div>
+                        <div style="flex: 1; display: flex; flex-direction: column; gap: 0.3rem;">
+                            <label style="font-size: 0.85rem; color: var(--text-secondary);">Cantidad a generar</label>
+                            <input type="number" id="e1-cantidad" placeholder="Ej. 100" value="100" min="10"
+                                oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                        </div>
+                        <div style="flex: 1; display: flex; flex-direction: column; gap: 0.3rem;">
+                            <label style="font-size: 0.85rem; color: var(--text-secondary);">Tamaño de Tabla</label>
+                            <input type="number" id="e1-tamano" placeholder="Ej. 100" value="10" min="2"
+                                oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                        </div>
+                    </div>
+                    <button class="btn-primary" style="margin-bottom: 1rem;" onclick="analizarEx1()">Simular y
+                        Analizar</button>
+
+                    <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
+                        <button onclick="clearTerminal('terminal-1')" class="btn-secondary"
+                            style="border-color: var(--text-secondary); color: var(--text-secondary);">Limpiar
+                            Terminal</button>
+                    </div>
+
+                    <div class="terminal-mockup">
+                        <div class="terminal-text" id="terminal-1">
+                            <span class="prompt">></span> Esperando parámetros para simulación...
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ejercicio 2: Mitad del Cuadrado -->
+            <div class="panel">
+                <div class="panel-header">
+                    <h2>2. Método de la Mitad del Cuadrado</h2>
+                </div>
+                <div class="panel-content">
+                    <p>Calcula el índice de una tabla elevando la clave al cuadrado y extrayendo los dígitos centrales.
+                    </p>
+                    <div class="form-group">
+                        <div style="flex: 2; display: flex; flex-direction: column; gap: 0.3rem;">
+                            <label style="font-size: 0.85rem; color: var(--text-secondary);">Claves (separadas por
+                                coma)</label>
+                            <input type="text" id="e2-numeros" value="2134, 5231, 2212, 1011">
+                        </div>
+                        <div style="flex: 1; display: flex; flex-direction: column; gap: 0.3rem;">
+                            <label style="font-size: 0.85rem; color: var(--text-secondary);">Tamaño de Tabla</label>
+                            <input type="number" id="e2-tamano" value="100" min="2"
+                                oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                        </div>
+                    </div>
+                    <button class="btn-primary" style="margin-bottom: 1rem;" onclick="analizarEx2()">Calcular
+                        Índices</button>
+
+                    <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
+                        <button onclick="clearTerminal('terminal-2')" class="btn-secondary"
+                            style="border-color: var(--text-secondary); color: var(--text-secondary);">Limpiar
+                            Terminal</button>
+                    </div>
+
+                    <div class="terminal-mockup">
+                        <div class="terminal-text" id="terminal-2">
+                            <span class="prompt">></span> Ingrese números separados por coma...
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ejercicio 3: Exploración Lineal -->
+            <div class="panel">
+                <div class="panel-header">
+                    <h2>3. Exploración Lineal</h2>
+                </div>
+                <div class="panel-content">
+                    <p>Simula inserciones en una tabla hash con colisiones usando función h(x) = x mod Tamaño.</p>
+                    <div class="form-group">
+                        <div style="flex: 2; display: flex; flex-direction: column; gap: 0.3rem;">
+                            <label style="font-size: 0.85rem; color: var(--text-secondary);">Claves a Insertar</label>
+                            <input type="text" id="e3-numeros" value="29, 41, 22, 31, 50, 19, 42, 38">
+                        </div>
+                        <div style="flex: 1; display: flex; flex-direction: column; gap: 0.3rem;">
+                            <label style="font-size: 0.85rem; color: var(--text-secondary);">Tamaño de Tabla</label>
+                            <input type="number" id="e3-tamano" value="12" min="2"
+                                oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                        </div>
+                    </div>
+                    <button class="btn-primary" style="margin-bottom: 1rem;" onclick="analizarEx3()">Simular
+                        Inserciones</button>
+
+                    <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
+                        <button onclick="clearTerminal('terminal-3')" class="btn-secondary"
+                            style="border-color: var(--text-secondary); color: var(--text-secondary);">Limpiar
+                            Terminal</button>
+                    </div>
+
+                    <div class="terminal-mockup">
+                        <div class="terminal-text" id="terminal-3">
+                            <span class="prompt">></span> Esperando simulación de exploración lineal...
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ejercicio 4: Gestión de Atletas -->
+            <div class="panel">
+                <div class="panel-header">
+                    <h2>4. Gestión de Atletas</h2>
+                </div>
+                <div class="panel-content">
+                    <p>Diseña una tabla hash para almacenar atletas usando su apellido como clave. La función hash suma
+                        el valor ASCII de los caracteres en posiciones impares.</p>
+                    <div class="form-group">
+                        <div style="flex: 1; display: flex; flex-direction: column; gap: 0.3rem;">
+                            <label style="font-size: 0.85rem; color: var(--text-secondary);">Generar Aleatorios</label>
+                            <input type="number" id="e4-cantidad" placeholder="Ej. 250" value="250" min="1"
+                                oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                        </div>
+                        <div style="flex: 1; display: flex; flex-direction: column; gap: 0.3rem;">
+                            <label style="font-size: 0.85rem; color: var(--text-secondary);">Tamaño de Tabla</label>
+                            <input type="number" id="e4-tamano" placeholder="Ej. 400" value="400" min="2"
+                                oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                        </div>
+                        <div style="flex: 2; display: flex; flex-direction: column; gap: 0.3rem;">
+                            <label style="font-size: 0.85rem; color: var(--text-secondary);">Probar Apellidos (Opcional,
+                                separador por coma)</label>
+                            <input type="text" id="e4-manuales" placeholder="Dejar en blanco para aleatorios">
+                        </div>
+                    </div>
+                    <button class="btn-primary" style="margin-bottom: 1rem;" onclick="analizarEx4()">Simular y Analizar
+                        Atletas</button>
+
+                    <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
+                        <button onclick="clearTerminal('terminal-4')" class="btn-secondary"
+                            style="border-color: var(--text-secondary); color: var(--text-secondary);">Limpiar
+                            Terminal</button>
+                    </div>
+
+                    <div class="terminal-mockup">
+                        <div class="terminal-text" id="terminal-4">
+                            <span class="prompt">></span> Esperando parámetros para simulación de atletas...
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ejercicio 5: Rehashing Dinámico -->
+            <div class="panel">
+                <div class="panel-header">
+                    <h2>5. Rehashing Dinámico</h2>
+                </div>
+                <div class="panel-content">
+                    <p>Simula el crecimiento de una tabla hash insertando 1000 números aleatorios. Cuando el factor de
+                        carga supera 0.5, la tabla se redimensiona al siguiente número primo.</p>
+                    <div class="form-group">
+                        <div style="flex: 1; display: flex; flex-direction: column; gap: 0.3rem;">
+                            <label style="font-size: 0.85rem; color: var(--text-secondary);">Cantidad de números
+                                aleatorios</label>
+                            <input type="number" id="e5-cantidad" value="1000" min="1"
+                                oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                        </div>
+                        <div style="flex: 1; display: flex; flex-direction: column; gap: 0.3rem;">
+                            <label style="font-size: 0.85rem; color: var(--text-secondary);">Tamaño Inicial de
+                                Tabla</label>
+                            <input type="number" id="e5-tamano" value="11" min="2"
+                                oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                        </div>
+                        <div style="flex: 1; display: flex; flex-direction: column; gap: 0.3rem;">
+                            <label style="font-size: 0.85rem; color: var(--text-secondary);">Umbral de Carga (0.1 a
+                                1.0)</label>
+                            <input type="number" step="0.1" id="e5-umbral" value="0.5" min="0.1" max="1.0">
+                        </div>
+                    </div>
+                    <button class="btn-primary" style="margin-bottom: 1rem;" onclick="analizarEx5()">Ejecutar
+                        Rehashing</button>
+
+                    <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
+                        <button onclick="clearTerminal('terminal-5')" class="btn-secondary"
+                            style="border-color: var(--text-secondary); color: var(--text-secondary);">Limpiar
+                            Terminal</button>
+                    </div>
+
+                    <div class="terminal-mockup">
+                        <div class="terminal-text" id="terminal-5">
+                            <span class="prompt">></span> Esperando simulación de rehashing...
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="/static/script.js?v=1"></script>
+</body>
+
+</html>
