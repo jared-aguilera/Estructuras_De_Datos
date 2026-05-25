@@ -31,7 +31,6 @@ class TablaHashBase:
         raise NotImplementedError("Debe implementarse en las clases hijas")
 
     def ver_estado(self):
-        """Devuelve el estado de la tabla de forma amigable para la UI."""
         estado = []
         for i in range(self.tamano):
             estado.append({"indice": i, "contenido": str(self.tabla[i]) if self.tabla[i] is not None else "-"})
